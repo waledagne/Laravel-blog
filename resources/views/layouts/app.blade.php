@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel blog</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-=======
-    <link rel = "stylesheet" href="{{asset('css/app.css')}}">
->>>>>>> parent of 6eeb22f... configured tailwind css
-</head>
-<body class="bg-gray-100">
 
-    <nav class="p-6 bg-white flex justify-between">
+    <link rel = "stylesheet" href="{{asset('css/app.css')}}">
+
+</head>
+<body class="bg-gray-300">
+
+    <nav class="p-6 bg-white flex justify-between mb-6">
     <ul class="flex items-center">
         <li>
             <a href="" class="p-3">Home</a>
@@ -25,6 +23,22 @@
             <a href="" class="p-3">Posts</a>
         </li>
     </ul>
+
+    <ul class="flex items-center">
+        <li>
+            <a href="" class="p-3">Wale Dagne</a>
+        </li>
+        <li>
+            <a href="" class="p-3">Register</a>
+        </li>
+        <li>
+            <a href="" class="p-3">Login</a>
+        </li>
+        <li>
+            <a href="" class="p-3">Logout</a>
+        </li>
+    </ul>
+
     </nav>
     @yield('content')
 
