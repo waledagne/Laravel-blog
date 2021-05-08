@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\HTTP\Controllers\Auth\RegisterController;
+use App\HTTP\Controllers\DashboardController;
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/posts', function () {

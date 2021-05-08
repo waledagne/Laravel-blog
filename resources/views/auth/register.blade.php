@@ -43,7 +43,7 @@
             <div class="mb-4">
                 <label for="password" class="sr-only">Password</label>
                 <input type="password" name="password" id="password" placeholder="Enter your Password" class="bg-gray-100 border-2 w-full p-4 rounded-lg
-                    @error('password') border-red-500 @enderror" value=" ">
+                    @error('password') border-red-500 @enderror" value="">
 
                 @error('password')
                 <div class="text-red-500 mt-2 text-sm">
@@ -55,7 +55,7 @@
                 <label for="password_confirmation" class="sr-only">Confirm Password</label>
                 <input type="password" name="password_confirmation" id="password_confirmation"
                     placeholder="Confirm password" class="bg-gray-100 border-2 w-full p-4 rounded-lg
-                    @error('password_confirmation') border-red-500 @enderror" value=" ">
+                    @error('password_confirmation') border-red-500 @enderror" value="">
 
                 @error('password_confirmation')
                 <div class="text-red-500 mt-2 text-sm">
