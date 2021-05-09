@@ -9,6 +9,7 @@
             {{ session('status')  }}
         </div>
         @endif
+
         <h1 class="flex justify-center font-bold">Login</h1>
         <form action="{{ route('login') }}" method="post">
             @csrf
@@ -36,9 +37,16 @@
                 @enderror
             </div>
 
+            <div class="mb-4">
+                <div class="flex items-center">
+                    <input type="checkbox" name="remember" id="remember" class="mr-2">
+                    <label for="remember">Remember me</label>
+                </div>
+            </div>
+
             <div>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-3 mt-4
-            roundedfont-medium w-full">Register</button>
+            roundedfont-medium w-full">Login</button>
             </div>
         </form>
 
