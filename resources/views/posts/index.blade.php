@@ -28,7 +28,7 @@
         @if ($posts->count())
         @foreach ($posts as $post )
         <div class="mb-4">
-            <a href="" class="font-bold">{{$post->user->name}}</a>
+            <a href="{{route('users.posts')}}" class="font-bold">{{$post->user->name}}</a>
             <span class="text-grey-600 text-sm">{{ $post->created_at->diffForHumans()}}</span>
             <p class="mb-4"> {{ $post->body }}</p>
 
@@ -47,11 +47,14 @@
                 </form>
                 @endif
 
-                {{--  <form action="{{route('posts',$post->id)}}" method="post" class="mr-1">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="text-red-500">Delete</button>
-                </form> --}}
+                @if ($post->ownedBy(auth()->user()))
+                <form action="{{route('posts.destroy',$post)}}" method="post" class="mr-1">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-red-500">Delete</button>
+                </form>
+                @endif
+
 
                 @endauth
                 <span> {{ $post->likes->count()}} {{Str::plural('like',$post->likes->count())}}</span>
