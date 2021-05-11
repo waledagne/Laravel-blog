@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Like;
 use App\Models\User;
+use App\Models\Post;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -49,5 +50,9 @@ class User extends Authenticatable
 
     public function likes(){
         return $this->hasMany(Like::class);
+    }
+
+    public function recievedLikes() {
+        return $this->hasManyThrough(Like::class, Post::class);
     }
 }

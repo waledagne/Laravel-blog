@@ -15,6 +15,13 @@ class PostController extends Controller
         ]);
     }
 
+    public function show(Post $post){
+
+        return view('posts.show',[
+            'posts' => $posts
+        ]);
+    }
+
     public function store(Request $request){
 
         $this->validate($request, [
@@ -24,6 +31,26 @@ class PostController extends Controller
         $request->user()->posts()->create($request->only('body'));
 
         return back();
+    }
+
+    public function edit(Post $post){
+        //$posts = Post::find($post);
+
+        return view('posts.edit',[
+            'post' => $post,
+        ]);
+    }
+
+    public function update(Post $post, Request $request){
+
+        $this->validate($request, [
+            'body' => 'required'
+        ]);
+
+        $request->user()->posts()->update($request->only('body'));
+
+        return redirect('/posts');
+
     }
 
     public function destroy(Post $post){

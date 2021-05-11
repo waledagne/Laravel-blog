@@ -11,11 +11,11 @@
                 <textarea name="body" id="body" cols="30" rows="5" class="bg-gray-100 border-2 w-full p-4 rounded-lg
                         @error('body') border-red-500 @enderror" placeholder="Post something">
 
-            @error('body')
+                        @error('body')
             <div class="text-red-500 mt-2 text-sm">
                 {{ $message }}
             </div>
-            @enderror>
+            @enderror
         </textarea>
             </div>
 
@@ -27,8 +27,9 @@
 
         @if ($posts->count())
         @foreach ($posts as $post )
+
         <div class="mb-4">
-            <a href="{{route('users.posts')}}" class="font-bold">{{$post->user->name}}</a>
+            <a href="{{route('users.posts',$post->user)}}" class="font-bold">{{$post->user->name}}</a>
             <span class="text-grey-600 text-sm">{{ $post->created_at->diffForHumans()}}</span>
             <p class="mb-4"> {{ $post->body }}</p>
 
@@ -43,7 +44,7 @@
                 <form action="{{route('posts.likes',$post->id)}}" method="post" class="mr-1">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="text-blue-500">UnLike</button>
+                    <button type="submit" class="text-blue-500">Unlike</button>
                 </form>
                 @endif
 
@@ -52,6 +53,10 @@
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="text-red-500">Delete</button>
+                </form>
+                <form action="{{route('posts.edit',$post)}}" method="get" class="mr-1">
+                    @csrf
+                    <button type="submit" class="text-blue-500">Edit</button>
                 </form>
                 @endif
 
@@ -62,6 +67,7 @@
             </div>
 
         </div>
+        {{--  <x-post :post="$post" />  --}}
         @endforeach
 
         {{ $posts->links() }}
